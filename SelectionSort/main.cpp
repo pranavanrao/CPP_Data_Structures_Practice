@@ -2,21 +2,25 @@
 
 using namespace std;
 
-void swapItems(int a[], int i, int j) {
-    int temp = a[i];
-    a[i] = a[j];
-    a[j] = temp;
+void swapItems(int &i, int &j) {
+    int temp = i;
+    i = j;
+    j = temp;
 }
 
 void selectionSort(int a[], int size) {
-    for (int i=0; i<size; i++) {
+    int min;
+    for (int i=0; i<size-1; i++) {
+        min = i;
         for (int j=i+1; j<size; j++) {
-            if (a[j] < a[i]) {
-                swapItems(a, i, j);
+            if (a[j] < a[min]) {
+                min = j;
             }
         }
 
-        cout << a[i] << " ";
+        if (min != i) {
+            swapItems(a[min], a[i]);
+        }
     }
 }
 
@@ -41,5 +45,10 @@ int main()
 
     cout << endl << "The sorted array : ";
     selectionSort(a, size);
+
+    for (int i = 0; i < size; ++i) {
+        cout << a[i] << " ";
+    }
+
     return 0;
 }
