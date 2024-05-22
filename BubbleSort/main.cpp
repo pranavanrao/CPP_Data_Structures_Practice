@@ -8,7 +8,7 @@ void swapItems(int a[], int i, int j) {
     a[j] = temp;
 }
 
-void selectionSort(int a[], int size) {
+void bubbleSort(int a[], int size) {
     for (int i=0; i<size; i++) {
         for (int j=i+1; j<size; j++) {
             if (a[j] < a[i]) {
@@ -40,6 +40,6 @@ int main()
     }
 
     cout << endl << "The sorted array : ";
-    selectionSort(a, size);
+    bubbleSort(a, size);
     return 0;
 }
